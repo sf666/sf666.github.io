@@ -29,26 +29,79 @@
   <div class="container">
     <div class="head"> NextCP/2</div>
     <div class="bodytext">
-      This is a web-based UPnP control point.
+      This is a web-based UPnP control point. Most control point applications run on a single device. This control point allows simultanious access
+      from any device with a current web-browser.
     </div>
 
 
-    <div class="head">Secreenshots</div>
+    <div class="head">User Interface</div>
     <div class="subhead">
       Content Directory Browsing
-      <img src="img/browser.png" class="img-fluid" alt="Content Directory Brwosing">
     </div>
+    <div class="bodytext">
+      Select an input source by clicking on the media server dropdown box. The served media files will be displayed at
+      the main screen.
+      Folders, playlists and music items are displayed in separate sections. Choose an Output device by selecting one
+      item from the
+      media renderer drop down.
+    </div>
+    <div class="bodytext">
+      Depending on the tile type an overlay with symbols appear to
+      <ul>
+        <li>step into a folder or playlist</li>
+        <li>delete current playlist and play all music items from this playlist</li>
+        <li>add all music items to current playlist</li>
+      </ul>
+    </div>
+
+    <img src="img/browser.png" class="img-fluid" alt="Content Directory Brwosing">
+
+    <div class="subhead">
+      Playlist
+    </div>
+    <div class="bodytext">
+      Displays the current playlist. Click on an music item to listen to it. Playlist will continue playback with last
+      played song.
+    </div>
+    <img src="img/playlist.png" class="img-fluid" alt="Playlist">
+
+
+
+    <div class="subhead">
+      Radio & Online resources
+    </div>
+    <div class="bodytext">
+      Click on the play symbol to play an online resource or radio station. Track and album elements are updates if
+      supported by the media renderer device.
+    </div>
+    <img src="img/radio.png" class="img-fluid" alt="Radio and online resources">
+
     <div class="subhead">
       Settings
-      <img src="img/settings.png" class="img-fluid" alt="Content Directory Brwosing">
     </div>
+    <div class="headline">
+      Client profiles
+    </div>
+    <div class="bodytext">
+      Save and select a profile for default media server and media renderer. Those defaults apply to the browser which
+      makes the configuration. Those devices will be automatically selected - if available - after entering the
+      application.
+    </div>
+    <div class="headline">
+      Media renderer configuration
+    </div>
+    <div class="bodytext">
+      List af discovered media renderer. If enabled switch is set and the device is online, the media renderer will be
+      available as a select option in the output drop down. If the media renderer should be controlled by another path but UPnP, select 
+      a device driver and enter a configuration string.
+    </div>
+        
+    <img src="img/settings.png" class="img-fluid" alt="Settings">
 
     <div class="head">Features</div>
 
-    Most control point applications run on a single device. This control point allows simultanious access
-    from any device with a current web-browser installed .
-
     <div class="bodytext">
+      Basically the featrues below are implemented. There might be some usage issues. Feel free to leave a <a href="https://github.com/sf666/nextcp2/issues">ticket</a>.
       <ul>
         <li>Browse Content Directory Server</li>
         <li>UPnP Playlist support</li>
@@ -57,6 +110,13 @@
         <li>play OpenHome radio</li>
       </ul>
     </div>
+
+    <div class="headline">
+      Featues implemented in a later release
+    </div>
+    <ul>
+      <li>Search Content Directory Server</li>
+    </ul>
 
     <div class="head">Compatibility</div>
     <div class="subhead">
