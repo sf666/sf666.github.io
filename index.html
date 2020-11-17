@@ -35,8 +35,7 @@
     <div class="head"> NextCP/2</div>
     <div class="bodytext">
       This is a web-based UPnP control point. Most control point applications run on a single device. This control point
-      allows simultanious access
-      from any device with a current web-browser.
+      allows simultanious access from any device with a current Chrome based web-browser.
     </div>
 
     <!-- User interface -->
@@ -47,12 +46,16 @@
       Content Directory Browsing
     </div>
     <div class="bodytext">
-      Select an input source by clicking on the media server dropdown box. The served media files will be displayed at
-      the main screen. You might need to refresh the browser once if no titles show up.
+      Before browsing your media library select a media server from the <b>I/O settings</b>, or define a default media
+      server in the <b>App Setting</b>
 
-      Folders, playlists and music items are displayed in separate sections. Choose an Output device by selecting one
-      item from the media renderer drop down.
+      Folders, playlists and music items are displayed in separate sections.
     </div>
+
+    <div class="headline">
+      General content browsing
+    </div>
+
     <div class="bodytext">
       Depending on the tile type an overlay with symbols appear to
       <ul>
@@ -64,13 +67,29 @@
 
     <img src="img/browser.png" class="img-fluid" alt="Content Directory Brwosing">
 
+    <div class="headline">
+      Album browsing
+    </div>
+
+    <div class="bodytext">
+      Visiting albums will display more options.
+      <ul>
+        <li>Pressing <b>play</b> will clear the current playlist, add all tracks and start playback.</li>
+        <li>Pressing <b>shuffle</b> will clear the current playlist, add all tracks and start shuffle playback.</li>
+        <li>Pressing <b>add tracks</b> will add all tracks to the current playlist.</li>
+      </ul>
+      Clicking on a title will play the selected track, <b>not</b> adding this item to the current playlist.
+    </div>
+    <img src="img/browse_title.png" class="img-fluid" alt="Content Directory Brwosing">
+
     <!-- Playlist -->
 
     <div class="subhead">
       Playlist
     </div>
     <div class="bodytext">
-      Displays the current playlist. The active song is highlighted.
+      Displays the current playlist. The active song is highlighted. nextCP/2 supports native OpenHome playlists, as
+      well as control point based playlist for regular UPnP devices.
     </div>
     <div class="bodytext">
       Click on any music item to listen to it - playback will continue after the song ends.
@@ -139,17 +158,15 @@
       </ul>
     </div>
 
-    <div class="headline">
-      Featues for future release
-    </div>
-    <ul>
-      <li>Search Content Directory Server</li>
-    </ul>
-
-
     <!-- Compatibility -->
 
     <div class="head">Compatibility</div>
+    <div class="subhead">
+      Browser
+    </div>
+    <div class="bodytext">
+      This software is tested with the current Chrome browser on desktop and mobile devices, but should also work with chromium based browsers like Safari. 
+    </div>
     <div class="subhead">
       Media Server
     </div>
