@@ -96,116 +96,121 @@
       UPnP search
     </div>
     <div class="bodytext">
-      If the content delivery server (media server) supports UPnP search requests, you can perfom search over the entire database.
+      If the content delivery server (media server) supports UPnP search requests, you can perfom search over the entire
+      database.
       The search will lookup Tracks, Album, Playlist or Artist.
-    <img src="img/search.png" class="img-fluid" alt="search result">
+      <img src="img/search.png" class="img-fluid" alt="search result">
 
-    <!-- Playlist -->
-    <div class="subhead">
-      Renderer Playlist
-    </div>
-    <div class="bodytext">
-      Displays the current playlist from the selected player. The active song is highlighted. nextCP/2 supports native
-      OpenHome playlists, as well as control point based playlist for regular UPnP devices.
-    </div>
-    <div class="bodytext">
-      Click on any music item to listen to it - playback will continue after the song ends.
-    </div>
-    <img src="img/playlist.png" class="img-fluid" alt="Playlist">
+      <!-- Playlist -->
+      <div class="subhead">
+        Renderer Playlist
+      </div>
+      <div class="bodytext">
+        Displays the current playlist from the selected player. The active song is highlighted. nextCP/2 supports native
+        OpenHome playlists, as well as control point based playlist for regular UPnP devices.
+      </div>
+      <div class="bodytext">
+        Click on any music item to listen to it - playback will continue after the song ends.
+      </div>
+      <img src="img/playlist.png" class="img-fluid" alt="Playlist">
 
-    <!-- Radio -->
-    <div class="subhead">
-      Radio
-    </div>
-    <div class="bodytext">
-      Radio stations configured by nextCP/2 configuration file or by the selected media renderer (player).
-      Click on the play symbol to play an online resource or radio station. Track and album elements are updates if
-      supported by the media renderer device.
-    </div>
+      <!-- Radio -->
+      <div class="subhead">
+        Radio
+      </div>
+      <div class="bodytext">
+        Radio stations configured by nextCP/2 configuration file or by the selected media renderer (player).
+        Click on the play symbol to play an online resource or radio station. Track and album elements are updates if
+        supported by the media renderer device.
+      </div>
 
-    <img src="img/radio.png" class="img-fluid" alt="Radio and online resources">
+      <img src="img/radio.png" class="img-fluid" alt="Radio and online resources">
 
-    <!-- Settings -->
-    <div class="subhead">
-      Settings
-    </div>
-    <div class="headline">
-      Client profiles
-    </div>
-    <div class="bodytext">
-      Save and select a profile for default media server and media renderer. Those defaults apply to the browser which
-      makes the configuration. Those devices will be automatically selected - if available - after entering the
-      application.
-    </div>
-    <div class="headline">
-      Media renderer configuration
-    </div>
-    <div class="bodytext">
-      List af discovered media renderer. If enabled switch is set and the device is online, the media renderer will be
-      available as a select option in the output drop down. If the media renderer should be controlled by another path
-      but UPnP, select a device driver and enter a configuration string.
-    </div>
+      <!-- Settings -->
+      <div class="subhead">
+        Settings
+      </div>
+      <div class="headline">
+        Client profiles
+      </div>
+      <div class="bodytext">
+        Save and select a profile for default media server and media renderer. Those defaults apply specific to the
+        browser which
+        makes the configuration. The default devices will be automatically selected - if available - after entering or
+        reloading the application.
+      </div>
+      <div class="headline">
+        Media renderer configuration
+      </div>
+      <div class="bodytext">
+        List af discovered media renderer. If enabled switch is set and the device is online, the media renderer will be
+        available as a select option in the output drop down. If the media renderer should be controlled by another path
+        but UPnP, select a device driver and enter a configuration string.
+      </div>
 
-    <img src="img/settings.png" class="img-fluid" alt="Settings">
+      <img src="img/settings.png" class="img-fluid" alt="Settings">
 
-    <!-- Features -->
-    <div class="head">Features</div>
+      <!-- Features -->
+      <div class="head">Features</div>
 
-    <div class="bodytext">
-      Basically the features below are implemented. There might be some usage issues. Feel free to leave a <a
-        href="https://github.com/sf666/nextcp2/issues">ticket</a>.
-      <ul>
-        <li>Browse Content Directory Server</li>
-        <li>Search Content Directory Server</li>
-        <li>UPnP Playlist support</li>
-        <li>star rating support if songs are tagged with musicBrainzID</li>
+      <div class="bodytext">
+        Basically the features below are implemented. There might be some usage issues. Feel free to leave a <a
+          href="https://github.com/sf666/nextcp2/issues">ticket</a>.
         <ul>
-          <li>import star rating from song files metadata section</li>
-          <li>optional export star rating to musicBrainz (account required)</li>
-          <li>optional save star rating into song files metadata section</li>
+          <li>Browse Content Directory Server</li>
+          <li>Search Content Directory Server</li>
+          <li>UPnP Playlist support</li>
+          <li>star rating support if songs are tagged with musicBrainzID</li>
+          <ul>
+            <li>import star rating from song files metadata section</li>
+            <li>optional export star rating to musicBrainz (account required)</li>
+            <li>optional save star rating into song files metadata section</li>
+          </ul>
+          <li>Openhome Playlist support</li>
+          <li>play web radio</li>
+          <li>play OpenHome radio</li>
         </ul>
-        <li>Openhome Playlist support</li>
-        <li>play web radio</li>
-        <li>play OpenHome radio</li>
-      </ul>
-    </div>
+      </div>
 
-    <!-- Compatibility -->
+      <!-- Compatibility -->
 
-    <div class="head">Compatibility</div>
-    <div class="subhead">
-      Browser
-    </div>
-    <div class="bodytext">
-      This software is tested with the current Chrome browser on desktop and mobile devices, but should also work with
-      other chromium based browsers like Safari.
-    </div>
+      <div class="head">Compatibility</div>
+      <div class="subhead">
+        Browser
+      </div>
+      <div class="bodytext">
+        This software is tested with the current Chrome browser on desktop and mobile devices, but should also work with
+        other chromium based browsers like Safari.
+      </div>
 
-    <div class="subhead">
-      Content Delivery Server (media server)
-    </div>
-    <div class="bodytext">
-      This software has been tested with
-      <ul>
-        <li>Universal Media Server : <a
-            href="https://www.universalmediaserver.com/">https://www.universalmediaserver.com/</a></li>
-        <li>Serviio : <a href="https://serviio.org/">https://serviio.org/</a></li>
-        <li>Minimserver (including minim-tag support) : <a href="https://minimserver.com/">https://minimserver.com/</a></li>
-      </ul>
-    </div>
+      <div class="subhead">
+        Content Delivery Server (media server)
+      </div>
+      <div class="bodytext">
+        This software has been tested with
+        <ul>
+          <li>Universal Media Server : <a
+              href="https://www.universalmediaserver.com/">https://www.universalmediaserver.com/</a></li>
+          <li>Serviio : <a href="https://serviio.org/">https://serviio.org/</a></li>
+          <li>Minimserver (including minim-tag support) : <a
+              href="https://minimserver.com/">https://minimserver.com/</a></li>
+        </ul>
+      </div>
 
-    <div class="subhead">
-      Player (media renderer)
+      <div class="subhead">
+        Player (media renderer)
+      </div>
+      <div class="bodytext">
+        This software has been tested with MediaPlayer. This renderer also provides MusicBrainzID information for played
+        songs. This means
+        server based playlist editing support is activated, if the song has embedded metadata.
+        <ul>
+          <li>MediaPlayer : <a
+              href="https://github.com/PeteManchester/MediaPlayer">https://github.com/PeteManchester/MediaPlayer</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="bodytext">
-      This software has been tested with MediaPlayer. This renderer also provides MusicBrainzID information for played songs. This means
-      server based playlist editing support is activated, if the song has embedded metadata.
-      <ul>
-        <li>MediaPlayer : <a
-            href="https://github.com/PeteManchester/MediaPlayer">https://github.com/PeteManchester/MediaPlayer</a></li>
-      </ul>
-    </div>
-  </div>
 
 </body>
 
