@@ -57,7 +57,7 @@
     </div>
 
     <div class="bodytext">
-      Depending on the tile type an overlay with symbols appear to
+      Depending on the content type an overlay with symbols appear to
       <ul>
         <li>step into a folder or playlist</li>
         <li>delete current playlist and play all music items from this playlist</li>
@@ -72,7 +72,7 @@
     </div>
 
     <div class="bodytext">
-      Visiting albums will display more options.
+      Browsing into albums or server based playlists, more options are available.
       <ul>
         <li>Pressing <b>play</b> will clear the current playlist, add all tracks and start playback.</li>
         <li>Pressing <b>shuffle</b> will clear the current playlist, add all tracks and start shuffle playback.</li>
@@ -80,16 +80,22 @@
       </ul>
       Clicking on a title will play the selected track, <b>not</b> adding this item to the current playlist.
     </div>
+
+    Some features are only available if the content delivery server is providing additional metadata for the browsed
+    content and the Indexer is configured to the same music library location, which the Content Directory Server uses
+    and the audio files are tagged with musicBrainzID. In case the musicBrainzID is available for a song, the option
+    element shows the ability to add this song to a server based playlist ot to download it.
+
     <img src="img/browse_title.png" class="img-fluid" alt="Content Directory Brwosing">
 
     <!-- Playlist -->
 
     <div class="subhead">
-      Playlist
+      Renderer Playlist
     </div>
     <div class="bodytext">
-      Displays the current playlist. The active song is highlighted. nextCP/2 supports native OpenHome playlists, as
-      well as control point based playlist for regular UPnP devices.
+      Displays the current playlist from the selected player. The active song is highlighted. nextCP/2 supports native
+      OpenHome playlists, as well as control point based playlist for regular UPnP devices.
     </div>
     <div class="bodytext">
       Click on any music item to listen to it - playback will continue after the song ends.
@@ -98,24 +104,12 @@
 
     <!-- Radio -->
     <div class="subhead">
-      Online Radio
-    </div>
-    <div class="bodytext">
-      Click on the play symbol to play an online resource or radio station. Track and album elements are updates if
-      supported by the media renderer device.
-    </div>
-    <div class="headline">
       Radio
     </div>
     <div class="bodytext">
-      Radio stations confiigured by nextCP/2 configuration file.
-    </div>
-
-    <div class="headline">
-      Device Radio Station
-    </div>
-    <div class="bodytext">
-      Radio stations provided by the selected media renderer.
+      Radio stations configured by nextCP/2 configuration file or by the selected media renderer (player).
+      Click on the play symbol to play an online resource or radio station. Track and album elements are updates if
+      supported by the media renderer device.
     </div>
 
     <img src="img/radio.png" class="img-fluid" alt="Radio and online resources">
@@ -151,7 +145,14 @@
         href="https://github.com/sf666/nextcp2/issues">ticket</a>.
       <ul>
         <li>Browse Content Directory Server</li>
+        <li>Search Content Directory Server</li>
         <li>UPnP Playlist support</li>
+        <li>star rating support if songs are tagged with musicBrainzID</li>
+        <ul>
+          <li>import star rating from song files metadata section</li>
+          <li>optional export star rating to musicBrainz (account required)</li>
+          <li>optional save star rating into song files metadata section</li>
+        </ul>
         <li>Openhome Playlist support</li>
         <li>play web radio</li>
         <li>play OpenHome radio</li>
@@ -165,7 +166,8 @@
       Browser
     </div>
     <div class="bodytext">
-      This software is tested with the current Chrome browser on desktop and mobile devices, but should also work with chromium based browsers like Safari. 
+      This software is tested with the current Chrome browser on desktop and mobile devices, but should also work with other
+      chromium based browsers like Safari.
     </div>
     <div class="subhead">
       Media Server
@@ -175,6 +177,7 @@
       This software has been tested with
 
       <ul>
+        <li>Universal Media Server : <a href="https://www.universalmediaserver.com/">https://www.universalmediaserver.com/</a></li>
         <li>Serviio : <a href="https://serviio.org/">https://serviio.org/</a></li>
         <li>Minimserver : <a href="https://minimserver.com/">https://minimserver.com/</a></li>
       </ul>
