@@ -67,6 +67,7 @@
 
     <img src="img/browser.png" class="img-fluid" alt="Content Directory Brwosing">
 
+    <!-- Browsing -->
     <div class="headline">
       Album browsing
     </div>
@@ -81,15 +82,25 @@
       Clicking on a title will play the selected track, <b>not</b> adding this item to the current playlist.
     </div>
 
-    Some features are only available if the content delivery server is providing additional metadata for the browsed
-    content and the Indexer is configured to the same music library location, which the Content Directory Server uses
-    and the audio files are tagged with musicBrainzID. In case the musicBrainzID is available for a song, the option
-    element shows the ability to add this song to a server based playlist ot to download it.
+    <div class="bodytext">
+      Some features are only available if the content delivery server is providing additional metadata for the browsed
+      content and the Indexer is configured to the same music library location, which the Content Directory Server uses
+      and the audio files are tagged with musicBrainzID. In case the musicBrainzID is available for a song, the option
+      element shows the ability to add this song to a server based playlist ot to download it.
+    </div>
 
     <img src="img/browse_title.png" class="img-fluid" alt="Content Directory Brwosing">
 
-    <!-- Playlist -->
+    <!-- Searching -->
+    <div class="subhead">
+      UPnP search
+    </div>
+    <div class="bodytext">
+      If the content delivery server (media server) supports UPnP search requests, you can perfom search over the entire database.
+      The search will lookup Tracks, Album, Playlist or Artist.
+    <img src="img/search.png" class="img-fluid" alt="search result">
 
+    <!-- Playlist -->
     <div class="subhead">
       Renderer Playlist
     </div>
@@ -166,7 +177,8 @@
       Browser
     </div>
     <div class="bodytext">
-      This software is tested with the current Chrome browser on desktop and mobile devices, but should also work with other
+      This software is tested with the current Chrome browser on desktop and mobile devices, but should also work with
+      other
       chromium based browsers like Safari.
     </div>
     <div class="subhead">
@@ -177,7 +189,8 @@
       This software has been tested with
 
       <ul>
-        <li>Universal Media Server : <a href="https://www.universalmediaserver.com/">https://www.universalmediaserver.com/</a></li>
+        <li>Universal Media Server : <a
+            href="https://www.universalmediaserver.com/">https://www.universalmediaserver.com/</a></li>
         <li>Serviio : <a href="https://serviio.org/">https://serviio.org/</a></li>
         <li>Minimserver : <a href="https://minimserver.com/">https://minimserver.com/</a></li>
       </ul>
