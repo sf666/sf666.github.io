@@ -83,10 +83,19 @@
     </div>
 
     <div class="bodytext">
-      Some features are only available if the content delivery server is providing additional metadata for the browsed
-      content and the Indexer is configured to the same music library location, which the Content Directory Server uses
-      and the audio files are tagged with musicBrainzID. In case the musicBrainzID is available for a song, the option
-      element shows the ability to add this song to a server based playlist ot to download it.
+      For some features to work songs need to be identified uniquely. Therefore
+      <ul>
+        <li>
+          the content delivery server needs to provide additional metadata (musicBrainzID). A known server is : <a href="https://www.universalmediaserver.com/">Universal Media Server</a>.
+        </li>
+        <li>
+          the Indexer (config file) is configured to the same music library location which the content directory server uses.
+        </li>
+        <li>
+          the audio files are tagged with musicBrainzID.
+        </li>
+      </ul>
+      In this case songs can be star rated (backend: local file and musicbrainz.org), added to and removed from server side playlists, downloaded and more ...
     </div>
 
     <img src="img/browse_title.png" class="img-fluid" alt="Content Directory Brwosing">
@@ -96,9 +105,10 @@
       UPnP search
     </div>
     <div class="bodytext">
-      If the content delivery server (media server) supports UPnP search requests, you can perfom search over the entire
-      database.
-      The search will lookup Tracks, Album, Playlist or Artist.
+      If the content delivery server (media server) supports UPnP search requests, searches over the entire content database can be done. 
+      Known media server with working UPnP search capabilities are <a href="https://minimserver.com/">Minimserver</a> 
+      and <a href="https://www.universalmediaserver.com/">Universal Media Server (since 10.6.0)</a>.
+      Entered text will be matched against tracks, albums, playlists and artists.
       <img src="img/search.png" class="img-fluid" alt="search result">
 
       <!-- Playlist -->
@@ -119,8 +129,8 @@
         Radio
       </div>
       <div class="bodytext">
-        Radio stations configured by nextCP/2 configuration file or by the selected media renderer (player).
-        Click on the play symbol to play an online resource or radio station. Track and album elements are updates if
+        Radio stations configured by nextCP/2 (configuration file) or by the active media renderer (player).
+        Click on the play symbol to play an online resource or radio station. Track and album informations are updated if
         supported by the media renderer device.
       </div>
 
