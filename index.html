@@ -51,9 +51,8 @@
 
       Folders, playlists and music items are displayed in separate sections.
     </div>
-
     <div class="headline">
-      General content browsing
+      General content browsing (folder view)
     </div>
 
     <div class="bodytext">
@@ -69,11 +68,11 @@
 
     <!-- Browsing -->
     <div class="headline">
-      Album browsing
+      Album view
     </div>
 
     <div class="bodytext">
-      While browsing into albums or server based playlists, more options are available.
+      While browsing into albums or server based playlists the view switches to a track based display. Additionally, more options are available:
       <ul>
         <li>Pressing <b>play</b> will clear the current playlist, add all tracks and start playback.</li>
         <li>Pressing <b>shuffle</b> will clear the current playlist, add all tracks and start shuffle playback.</li>
@@ -86,7 +85,7 @@
       For some features to work songs need to be identified uniquely. Therefore
       <ul>
         <li>
-          the content delivery server needs to provide additional metadata (musicBrainzID). Known working implementation is : <a href="https://www.universalmediaserver.com/">Universal Media Server</a>.
+          the content delivery server needs to provide additional metadata (musicBrainzID, disc id). Known working implementation is : <a href="https://www.universalmediaserver.com/">Universal Media Server</a>.
         </li>
         <li>
           the Indexer (config file) is configured to the same music library location which the content directory server uses
@@ -98,7 +97,7 @@
       In case a song/album can be identified
       <ul>
         <li>
-          rating support (update local file and update of personal musicbrainz.org account)
+          rating support (media server / local file / personal musicbrainz.org account)
         </li>
         <li>
           <b>add</b> and <b>remove</b> songs to/from server side playlists
@@ -111,8 +110,24 @@
         </li>
       </ul> is activated.
     </div>
-
     <img src="img/browse_title.png" class="img-fluid" alt="Content Directory Brwosing">
+
+    <div class="headline">
+      Multi Disc Support
+    </div>        
+    <div class="bodytext">
+      Copy all audio files of your multi disc release in one folder and your songs will be sorted by disk and then by track ID.
+      For this to work, songs have to be tagged with correct <b>numberOfThisDisc</b> ID3 comments. 
+    </div>
+    <img src="img/multiDiskSupport.png" class="img-fluid" alt="Multi Disc Support">
+
+    <div class="headline">
+      Playlist view
+    </div>        
+    <div class="bodytext">
+      Browsing into playlists will switch to a condensed song view (default) and can be switched back to an album view by clicking on <b>switch view</b>.
+    </div>
+    <img src="img/playlistView.png" class="img-fluid" alt="playlist view">
 
     <!-- Searching -->
     <div class="subhead">
@@ -122,15 +137,15 @@
       Entering text into the <b>global search</b> box initiates a search through the media server database. 
       Known media server with working UPnP search capabilities are <a href="https://minimserver.com/">Minimserver</a> 
       and <a href="https://www.universalmediaserver.com/">Universal Media Server (since 10.6.0)</a>.
-      Text will be matched against tracks, albums, playlists and artists.
+      Text will be matched against tracks, albums, playlists and artists
       <img src="img/search.png" class="img-fluid" alt="search result">
 
       <!-- Playlist -->
       <div class="subhead">
-        Renderer Playlist
+        Media Renderer Device playlist (player) 
       </div>
       <div class="bodytext">
-        Displays the current playlist of the selected media player. The active song is highlighted. nextCP/2 supports native
+        Displays current playlist of selected media player. The active song is highlighted. nextCP/2 supports native
         OpenHome playlists, as well as control point based playlist for regular UPnP devices.
       </div>
       <div class="bodytext">
