@@ -88,13 +88,10 @@
           the content delivery server needs to provide additional metadata (musicBrainzID, disc id). Known working implementation is : <a href="https://www.universalmediaserver.com/">Universal Media Server</a>.
         </li>
         <li>
-          the Indexer (config file) is configured to the same music library location which the content directory server uses
-        </li>
-        <li>
-          the audio files must be tagged with musicBrainzID (trackId / releaseId)
+          audio files must be tagged with musicBrainzID (trackId / releaseId, numberOfThisDisc)
         </li>
       </ul>
-      In case a song/album can be identified
+      In case a song/album can be identified more actions are available like
       <ul>
         <li>
           rating support (media server / local file / personal musicbrainz.org account)
@@ -125,7 +122,7 @@
       Playlist view
     </div>        
     <div class="bodytext">
-      Browsing into playlists will switch to a condensed song view (default) and can be switched back to an album view by clicking on <b>switch view</b>.
+      Browsing into playlists will switch to a condensed song view (default) and can be switched back to an album view by clicking on <b>switch view</b> button.
     </div>
     <img src="img/playlistView.png" class="img-fluid" alt="playlist view">
 
@@ -134,7 +131,7 @@
       UPnP search
     </div>
     <div class="bodytext">
-      Entering text into the <b>global search</b> box initiates a search through the media server database. 
+      Entering text into the <b>global search</b> box initiates a search done by the media server. 
       Known media server with working UPnP search capabilities are <a href="https://minimserver.com/">Minimserver</a> 
       and <a href="https://www.universalmediaserver.com/">Universal Media Server (since 10.6.0)</a>.
       Text will be matched against tracks, albums, playlists and artists
@@ -142,11 +139,11 @@
 
       <!-- Playlist -->
       <div class="subhead">
-        Media Renderer Device playlist (player) 
+        Queue (media renderer playlist) 
       </div>
       <div class="bodytext">
-        Displays current playlist of selected media player. The active song is highlighted. nextCP/2 supports native
-        OpenHome playlists, as well as control point based playlist for regular UPnP devices.
+        Displays playlist of selected media player. The active song is highlighted. nextCP/2 supports native
+        OpenHome playlists, as well as self managed playlist for regular UPnP devices.
       </div>
       <div class="bodytext">
         Click on any music item to listen to it - playback will continue after the song ends.
@@ -158,7 +155,8 @@
         Radio
       </div>
       <div class="bodytext">
-        Radio stations configured by nextCP/2 (configuration file) or by the active media renderer (player).
+        First rows consist of self managed Radio stations read from nextCP/2 configuration file. Next section displays radio 
+        stations provided by the active player.
         Click on the play symbol to play an online resource or radio station. Track and album informations are updated if
         supported by the media renderer device.
       </div>
@@ -173,23 +171,20 @@
         Client profiles
       </div>
       <div class="bodytext">
-        Save and select a profile for default media server and media renderer. Those defaults apply specific to the
-        browser which
-        makes the configuration. The default devices will be automatically selected - if available - after entering or
-        reloading the application.
+        Save and select a profile for default media server and media renderer. These defaults are saved browser specific.
+        The default devices will be automatically selected - if available - after entering or reloading the application.
       </div>
       <div class="headline">
         Media renderer configuration
       </div>
       <div class="bodytext">
-        List af discovered media renderer. If enabled switch is set and the device is online, the media renderer will be
-        available as a select option in the output drop down.        
+        List af discovered media renderer. If enabled media renderer will be available for selection.
       </div>
       <div class="bodytext">
-        If the media renderer is attached to a physical receiver / AV-device with remote control capability, 
-        select a proper device driver and enter a device driver configuration string. A McIntosh device driver is available for download.
+        If the media renderer is attached to a physical receiver / AV-device with remote control capability (in example by a RS232 or TCP/IP port), 
+        select a compatible device driver and enter a device driver configuration string. Device driver for McIntosh devices is available for download.
         It is recommended to set the media rendere volume to 100% if a device driver is selected. The device
-        driver notices a device power on state and can apply a default volume after powering up. 
+        driver notices a device power on state and will apply a default volume on the physical device after powering up. 
       </div>
 
       <img src="img/settings.png" class="img-fluid" alt="Settings">
@@ -234,10 +229,10 @@
         Content Delivery Server (media server)
       </div>
       <div class="bodytext">
-        This software has been tested with
+        By now, only <a href="https://www.universalmediaserver.com/">universal media server</a> supports all features and is the recommended media server.
+
+        This software has also been tested with
         <ul>
-          <li>Universal Media Server : <a
-              href="https://www.universalmediaserver.com/">https://www.universalmediaserver.com/</a></li>
           <li>Serviio : <a href="https://serviio.org/">https://serviio.org/</a></li>
           <li>Minimserver (including minim-tag support) : <a
               href="https://minimserver.com/">https://minimserver.com/</a></li>
@@ -249,8 +244,7 @@
       </div>
       <div class="bodytext">
         This software has been tested with MediaPlayer. This renderer also provides MusicBrainzID information for played
-        songs. This means
-        server based playlist editing support is activated, if the song has embedded metadata.
+        songs. This means server based playlist editing support is activated in <b>Now listening</b> view, if the song has embedded musicBrainzID metadata.
         <ul>
           <li>MediaPlayer : <a
               href="https://github.com/PeteManchester/MediaPlayer">https://github.com/PeteManchester/MediaPlayer</a>
