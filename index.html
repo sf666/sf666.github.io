@@ -9,21 +9,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
 
   <div class="container">
@@ -34,95 +35,208 @@
 
     <div class="head"> NextCP/2</div>
     <div class="bodytext">
-      This is a web-based UPnP control point. Most control point applications run on a single device. This control point
-      allows simultanious access from any device with a current Chrome based web-browser.
+      This is a web-based UPnP control point focused on audio playback. Most control point applications run on a single device. This control point
+      allows besides a local installation, simultaneous access from any device with a current Chrome based web-browser if installed on a server device like NAS, file-server,
+      Raspberry PI.
+    </div>
+    <div class="bodytext">
+      The responsive user interface will adapt to most mobile devices. Tablets should be used in landscape mode for best experience. Phones should be used in portrait mode. Browser
+      can be used in any width but look best not larger than 1600px.
     </div>
 
+    <!-- Installation -->
+    <div class="head">Quick Install Guide</div>
+    <div class="bodytext">
+      Download current <a href="https://github.com/sf666/nextcp2/releases">release</a> into a folder of your choice. Make sure to use Java JDK 15. Start the application by calling
+      <code>java -jar nextcp2-release.jar</code>. For Windows user an exe file is provided for download (experimental). For Linux/Unix systems with systemd service manager
+      installed a service template <a href="https://github.com/sf666/nextcp2/tree/main/startup-services/systemd">can be downloaded here</a> for starting nextcp/2 as a service.
+
+    </div>
+    <div class="bodytext">
+      After launching the application navigate with your browser to <code>http://server-ip-address:8085</code>. If the application is started on the local machine
+      browse to <code>http://127.0.0.1:8085</code>. If port 8085 is already in use, edit the file <code>nextcp2config.json</code> located next to your jar file and
+      change property <code>embeddedServerPort</code> to an available port. Further configuration can be done within the application itself. Please refer to
+      <a href="https://github.com/sf666/nextcp2">GitHub</a> for detailed configuration documentation.
+    </div>
+    <div class="bodytext">
+      After first startup it is recommended to configure a default client configuration which means choosing a default media server and a default media renderer by
+      navigating to <code>App Settings</code>. Create <code>NEW PROFILE</code> and rename it to a meaningful name, select server and renderer, then press the save button.
+    </div>
+    <div class="bodytext">
+      In case of using the recommended <a href="https://www.universalmediaserver.com/">Universal Media Server (UMS)</a> as media server, unlock API features by editing UMS
+      configuration file <code>UMS.conf</code> and add
+      <ul>
+        <li><code>api_key = 123456789012</code> // Key must have at least 12 chars and is mandatory</li>
+        <li><code>audio_update_rating_tag = true</code> // If rating should be saved within the audio file (metadata section). Default is false.</li>
+        <li><code>audio_likes_visible_root = true</code> // If "My Albums" should be located in the root folder next to the library folder. Default is false</li>
+        <li><code>managed_playlist_folder = /volumes/music/playlists</code> // change folder path to your music library's playlists folder. This folder should be reachable and
+          scanned by UMS. All playlists found in this folder (no subfolder) will then be displayed in the sidebar. New playlists will also be created in this folder.</li>
+      </ul>
+      Restart UMS. Locate UMS server in the <code>Media Server</code> section and enter the configured API key. Press <code>save</code>. Reload the page for changes to be visible.
+    </div>
     <!-- User interface -->
 
     <!-- CDS -->
     <div class="head">User Interface</div>
     <div class="subhead">
+      Introduction
+    </div>
+    <div class="bodytext">
+      This control point put's it focus on providing the best user experience for audio enthusiasts. Controlling other content is also supported but with less UI
+      awareness.
+    </div>
+    <div class="bodytext">
+      Since most audio UI friendly features use functionality beyond the UPnP specification, special media server API support is required to unlock all features. Currently
+      only
+      <a href="https://www.universalmediaserver.com/">Universal Media Server (UMS)</a> supports all features and is therefore the recommended media server.
+    </div>
+    <div class="headline">
+      Additional features supported by UMS
+    </div>
+    <div class="bodytext">
+      <ul>
+        <li>Like / Dislike music albums. Liked music albums can be directly accessed by "My Albums" sidebar link.</li>
+        <li>star rating support for audio files
+          <ul>
+            <li>export star rating to musicBrainz.org (account required)</li>
+            <li>save star rating into song files metadata section</li>
+          </ul>
+        </li>
+        <li>Extended server side playlist support with editing support.
+          <ul>
+            <li>create playlist in managed playlist folder</li>
+            <li>direct access to playlist from sidebar</li>
+            <li>adding songs to playlist</li>
+            <li>removing songs from playlist</li>
+          </ul>
+        </li>
+        <li>UPnP search: Searching media library for artists, song title, creator and playlists</li>
+      </ul>
+    </div>
+    <div class="subhead">
       Music Library
     </div>
     <div class="bodytext">
-      Before browsing your media library select a media server from the server popup button in the lower right corner, 
-      or define a default media server in the <b>App setting</b>.
-
-      Folders, playlists and music items are displayed in separate sections.
+      While navigating through the media server folders, the displayed layout will change in regard to the content. Folders are subtitled by their name, playlists, images and radio
+      stations are additionally highlighted.
     </div>
-    <div class="headline">
-      General content browsing (folder view)
-    </div>
-
     <div class="bodytext">
-      Depending on the content type an overlay with symbols appear to
-      <ul>
-        <li>step into a folder or playlist</li>
-        <li>delete current playlist and play all music items from this playlist</li>
-        <li>add all music items to current playlist</li>
-      </ul>
+      Enter text in <code>search content</code> box to filter displayed items and containers.</li>
     </div>
 
-    <img src="img/browser.png" class="img-fluid" alt="Content Directory Brwosing">
+    <div id="MediaLibCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#MediaLibCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#MediaLibCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#MediaLibCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/browser_1.png" class="d-block w-100">
+          <div class="carousel-caption d-none d-md-block">
+            <p>Folder View</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/browser_2.png" class="d-block w-100">
+          <div class="carousel-caption d-none d-md-block">
+            <p>Playlist Files</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/browser_3.png" class="d-block w-100">
+          <div class="carousel-caption d-none d-md-block">
+            <p>Folder and Images</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#MediaLibCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#MediaLibCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
 
     <!-- Browsing -->
     <div class="headline">
-      Album view
+      Album View
     </div>
 
     <div class="bodytext">
-      While browsing into albums or server based playlists the view switches to a track based display. Additionally, more options are available:
+      While browsing into an container that consists only of tracks of the same album the view switches to a track based display. Controls functions:
       <ul>
-        <li>Pressing <b>play</b> will clear the current playlist, add all tracks and start playback.</li>
-        <li>Pressing <b>shuffle</b> will clear the current playlist, add all tracks and start shuffle playback.</li>
-        <li>Pressing <b>add tracks</b> will add all tracks to the current playlist.</li>
+        <li>Press <b>switch view</b> switches to a tiles based view. Pressing this button again will cycle back to a track based view.</li>
+        <li>Press <b>play</b> will clear the current renderer playlist, add all tracks and start playback.</li>
+        <li>Press <b>shuffle</b> will clear the current renderer playlist, add all tracks and start shuffle playback.</li>
+        <li>Press <b>add tracks</b> will add all tracks to the current renderer playlist.</li>
       </ul>
       Clicking on a title will play the selected track, <b>not</b> adding this item to the current playlist.
     </div>
 
     <div class="bodytext">
-      For some features to work songs need to be identified uniquely. Therefore
-      <ul>
-        <li>
-          the content delivery server needs to provide additional metadata (musicBrainzID, disc id). Known working implementation is : <a href="https://www.universalmediaserver.com/">Universal Media Server</a>.
-        </li>
-        <li>
-          audio files must be tagged with musicBrainzID (trackId / releaseId, numberOfThisDisc)
-        </li>
-      </ul>
-      In case a song/album can be identified more actions are available like
-      <ul>
-        <li>
-          rating support (media server / local file / personal musicbrainz.org account)
-        </li>
-        <li>
-          <b>add</b> and <b>remove</b> songs to/from server side playlists
-        </li>
-        <li>
-          file download
-        </li>
-        <li>
-          liking albums
-        </li>
-      </ul> is activated.
+      In case an album is identified by MusicBrainz-ReleaseId, liking this album is activated by displaying a heart symbol next to the album title.
+      Liked albums have a filled heart symbol otherwise the symbol is outlined. Liked album can then be quick accessed by clicking on <code>My Albums</code> in the side bar.
     </div>
-    <img src="img/browse_title.png" class="img-fluid" alt="Content Directory Brwosing">
+
+    <div class="bodytext">
+      Songs can be rated 1 to 5 by clicking on the desired star symbol. The rating can be send to <a href="https://www.musicbrainz.org">musicBrainz.org</a> if the account is
+      configured in <code>app settings</code>. For UMS server: the rating information will be stored in the file itself if the audio file format is supported and
+      <code>audio_update_rating_tag = true</code> property is set in <code>UMS.conf</code>.
+    </div>
+    <div class="bodytext">
+      Clicking on the three dots will open song options dialog. For UMS server: the song can be added to a server based playlist, if
+      <code>managed_playlist_folder = PATH_TO_FOLDER</code>
+      property is set in <code>UMS.conf</code> and the PATH_TO_FOLDER folder has playlists. If the song is already in this playlist, an error message will appear.
+    </div>
+
+    <div id="AlbumViewCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#AlbumViewCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#AlbumViewCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/album_view_1.png" class="d-block w-100">
+          <div class="carousel-caption d-none d-md-block">
+            <p>Track View</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/album_view_2.png" class="d-block w-100">
+          <div class="carousel-caption d-none d-md-block">
+            <p>song options popup</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#AlbumViewCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#AlbumViewCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
 
     <div class="headline">
       Multi Disc Support
-    </div>        
+    </div>
     <div class="bodytext">
-      Copy all audio files of your multi disc release in one folder and your songs will be sorted by disk and then by track ID.
-      For this to work, songs have to be tagged with correct <b>numberOfThisDisc</b> ID3 comments. 
+      Copy all audio files of your multi disc release in one folder. Songs will be sorted by disk and then by track ID, if songs are
+      tagged with correct <b>numberOfThisDisc</b> ID3 comments.
     </div>
     <img src="img/multiDiskSupport.png" class="img-fluid" alt="Multi Disc Support">
 
     <div class="headline">
       Playlist view
-    </div>        
+    </div>
     <div class="bodytext">
-      Browsing into playlists will switch to a condensed song view (default) and can be switched back to an album view by clicking on <b>switch view</b> button.
+      Browsing into server based playlists switches the display to a track view with small album covers. Clicking on <b>switch view</b> will change the display to an full sized
+      album view.
     </div>
     <img src="img/playlistView.png" class="img-fluid" alt="playlist view">
 
@@ -131,87 +245,213 @@
       UPnP search
     </div>
     <div class="bodytext">
-      Entering text into the <b>global search</b> box initiates a search done by the media server. 
-      Known media server with working UPnP search capabilities are <a href="https://minimserver.com/">Minimserver</a> 
+      Entering text into the <b>global search</b> box initiates a search done by the media server.
+      Known media server with compatible UPnP search capabilities are <a href="https://minimserver.com/">Minimserver</a>
       and <a href="https://www.universalmediaserver.com/">Universal Media Server (since 10.6.0)</a>.
-      Text will be matched against tracks, albums, playlists and artists
+      Text will be matched against tracks, albums, playlists and artists. Artist covers are looked up from Spotify, if account is connected.
       <img src="img/search.png" class="img-fluid" alt="search result">
 
-      <!-- Playlist -->
+      <!-- Player Playlist -->
+
       <div class="subhead">
-        Queue (media renderer playlist) 
+        Player Queue
       </div>
       <div class="bodytext">
-        Displays playlist of selected media player. The active song is highlighted. nextCP/2 supports native
-        OpenHome playlists, as well as self managed playlist for regular UPnP devices.
+        Displays playlist of currently active media player. The active song is highlighted. nextCP/2 supports native
+        OpenHome playlists, as well as self managed playlist for regular UPnP devices without internal playlist support.
       </div>
       <div class="bodytext">
         Click on any music item to listen to it - playback will continue after the song ends.
       </div>
       <img src="img/playlist.png" class="img-fluid" alt="Playlist">
 
+      <!-- Now Listening -->
+
+      <div class="subhead">
+        Now Listening
+      </div>
+      <div class="bodytext">
+        Displays currently active player song. Song can be added to server playlist or star rated.
+      </div>
+      <img src="img/now_listening.png" class="img-fluid" alt="Playlist">
+
       <!-- Radio -->
       <div class="subhead">
         Radio
       </div>
       <div class="bodytext">
-        First rows consist of self managed Radio stations read from nextCP/2 configuration file. Next section displays radio 
+        First rows consist of self managed Radio stations read from nextCP/2 configuration file. Next section displays radio
         stations provided by the active player.
-        Click on the play symbol to play an online resource or radio station. Track and album informations are updated if
+        Click on the play symbol to play an online resource or radio station. Track and album information are updated if
         supported by the media renderer device.
       </div>
 
       <img src="img/radio.png" class="img-fluid" alt="Radio and online resources">
 
+      <!-- My Albums -->
+      <div class="subhead">
+        My Albums
+      </div>
+      <div class="bodytext">
+        Quick access for liked albums. This requires UMS as media renderer.
+      </div>
+
+      <img src="img/my_album.png" class="img-fluid" alt="Radio and online resources">
+
+
       <!-- Settings -->
       <div class="subhead">
-        Settings
+        App Settings
       </div>
       <div class="headline">
         Client profiles
       </div>
       <div class="bodytext">
-        Save and select a profile for default media server and media renderer. These defaults are saved browser specific.
-        The default devices will be automatically selected - if available - after entering or reloading the application.
+        Save and select a profile for default media server and media renderer. These defaults are browser specific saved. Repetitive access to the app with the same browser will
+        result in loading the same defaults. A message informs if a default device is not online.
       </div>
+
+      <!-- Media Server -->
+      <div class="headline">
+        Server Configuration
+      </div>
+      <div class="bodytext">
+        Card view of discovered media server. Server may be offline, if not yet found. Disabled server will not show up for selection in some popups or lists.
+      </div>
+      <div class="bodytext">
+        For a discovered UMS server the <code>UMS.conf</code> configured API key should be entered for unlocking all features. Otherwise most audio convenience functions will not
+        work!
+      </div>
+
+      <!-- Media Renderer -->
       <div class="headline">
         Media renderer configuration
       </div>
       <div class="bodytext">
-        List af discovered media renderer. If enabled media renderer will be available for selection.
+        Card display of discovered media renderer. Renderer may be offline, if not yet found. Disabled renderer will not show up for selection in some popups or lists.
       </div>
       <div class="bodytext">
-        If the media renderer is attached to a physical receiver / AV-device with remote control capability (in example by a RS232 or TCP/IP port), 
+        If the media renderer is attached to a physical receiver / AV-device with remote control capability (in example by a RS232 or TCP/IP port),
         select a compatible device driver and enter a device driver configuration string. Device driver for McIntosh devices is available for download.
-        It is recommended to set the media rendere volume to 100% if a device driver is selected. The device
-        driver notices a device power on state and will apply a default volume on the physical device after powering up. 
+        It is recommended to set the media renderer volume to 100% if a device driver is selected. The device
+        driver notices a device power on state and will apply a default volume on the physical device after powering up.
       </div>
 
-      <img src="img/settings.png" class="img-fluid" alt="Settings">
+      <div class="bodytext">
+        If a streaming device is attached to an amplifier, a device device driver can be selected for controlling the amplifier power and volume state instead of the streamer
+        volume and power state. A default volume percentage can be applied to the external amplifier on power up. The streaming device volume can be set to 100% on power up, if
+        <code>UPnP max volume</code> is enabled.
+      </div>
 
-      <!-- Features -->
-      <div class="head">Features</div>
+      <!-- Media Renderer -->
+      <div class="headline">
+        Active Media Server
+      </div>
+      <div class="bodytext">
+        Here are additional UMS server actions available, if the active media server is an instance of UMS.
+        <ul>
+          <li><code>rescan media library : </code> rescans UMS media library. Attention: This can be resource consuming on large media libraries!</li>
+          <li><code>backup liked albums :</code> backs up UMS liked albums in a separate backup file on the UMS server. In case the UMS media library is deleted, liked albums can
+            be restored afterwards.</li>
+          <li><code>restore liked albums : </code> Restored liked albums from a backup file, if exists.</li>
+          <li><code>sync : </code> Restores star rating from stored musicbrainz.org account.</li>
+        </ul>
+      </div>
+
+
+      <!-- General Settings -->
+      <div class="headline">
+        General Settings
+      </div>
+      <div class="bodytext">
+        <li><code>device driver library path : </code> Where to look for amplifier device drivers. Currently McIntosh amplifier like MA9000, MA12000 and other should work.</li>
+        <li><code>database path : </code> Where to store internal settings.</li>
+        <li><code>server listening port : </code> IP port to connect.</li>
+        <li><code>Log4j config file : </code> Where to look for a log4j2 config file.</li>
+        <li><code>Logging date format : </code> To adjust logging date format.</li>
+        <li><code>Generate UPnP code : </code> If enabled, <code>cling</code> UPnP access wrapper are generated for discovered UPnP services.</li>
+        <li>
+          <code>path for generated UPnP code : </code> Directory to store generated UPnP code.
+        </li>
+      </div>
+
+
+      <!-- Accounts -->
+      <div class="headline">
+        Accounts
+      </div>
+      <div class="heabodytextdline">
+        <b>Spotify</b>
+      </div>
+      <div class="bodytext">
+        Connect to Spotify account for discovering artists album art. If browser is connected to localhost, one step connection linking is availbale. Otherwise the
+        <code>authCode</code>
+        has to be copies manually in the code block.
+      </div>
+      <div class="bodytext">
+        <b>Last FM</b>
+      </div>
+      <div class="bodytext">
+        Account can be connected, but API is not used yet.
+      </div>
+
+      <!-- System Information -->
+      <div class="headline">
+        System Information
+      </div>
+      <div class="bodytext">
+        By now, only the build number is displayed.
+      </div>
+
+      <!-- Setting Images -->
+      <div id="SettingsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#SettingsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#SettingsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#SettingsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#SettingsCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/settings_1.png" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+              <p>Client Configuration</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/settings_2.png" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+              <p>Renderer Configuration</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/settings_3.png" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+              <p>General Configuration</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/settings_4.png" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+              <p>Accounts</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#SettingsCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#SettingsCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- Issues -->
+      <div class="head">Issues</div>
 
       <div class="bodytext">
-        Basically the features below are implemented. There might be some usage issues. Feel free to leave a <a
-          href="https://github.com/sf666/nextcp2/issues">ticket</a>.
-        <ul>
-          <li>Browse Content Directory Server</li>
-          <li>Search Content Directory Server</li>
-          <li>UPnP Playlist support</li>
-          <li>Display artist image in search if spotify account is linked</li>
-          <li>Liking of audio albums</li>
-          <li>star rating support if songs are tagged with musicBrainzID</li>
-          <ul>
-            <li>import star rating from song files metadata section</li>
-            <li>optional export star rating to musicBrainz (account required)</li>
-            <li>optional save star rating into song files metadata section</li>
-            <li>edit server based playlists</li>
-          </ul>
-          <li>Openhome Playlist support</li>
-          <li>play web radio</li>
-          <li>play OpenHome radio</li>
-        </ul>
+        There might be some usage issues. Feel free to leave a <a href="https://github.com/sf666/nextcp2/issues">ticket</a>.
       </div>
 
       <!-- Compatibility -->
@@ -234,8 +474,7 @@
         This software has also been tested with
         <ul>
           <li>Serviio : <a href="https://serviio.org/">https://serviio.org/</a></li>
-          <li>Minimserver (including minim-tag support) : <a
-              href="https://minimserver.com/">https://minimserver.com/</a></li>
+          <li>Minimserver : <a href="https://minimserver.com/">https://minimserver.com/</a></li>
         </ul>
       </div>
 
@@ -243,16 +482,14 @@
         Player (media renderer)
       </div>
       <div class="bodytext">
-        This software has been tested with MediaPlayer. This renderer also provides MusicBrainzID information for played
-        songs. This means server based playlist editing support is activated in <b>Now listening</b> view, if the song has embedded musicBrainzID metadata.
+        This software has been tested with
         <ul>
-          <li>MediaPlayer : <a
-              href="https://github.com/PeteManchester/MediaPlayer">https://github.com/PeteManchester/MediaPlayer</a>
-          </li>
+          <li>MediaPlayer : <a href="https://github.com/PeteManchester/MediaPlayer">https://github.com/PeteManchester/MediaPlayer</a></li>
+          <li>Lumin Streamer (U1 Mini)</li>
+          <li>Naim Streamer (MuSo-Qb)</li>
         </ul>
       </div>
     </div>
-
 </body>
 
 </html>

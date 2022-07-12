@@ -26,7 +26,7 @@ a.nav-link {
 }
 
 .head {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
 
     padding-top   : 1.2rem;
     padding-bottom: 0.4rem;
@@ -38,8 +38,8 @@ a.nav-link {
 }
 
 .subhead {
-    color      : #367dac;
-    font-size  : 1.15rem;
+    color      : #bd91d0;
+    font-size  : 1.35rem;
     font-weight: 600;
 
     padding-bottom: 0.2rem;
@@ -48,7 +48,7 @@ a.nav-link {
 
 .headline {
     color      : #9bcbeb;
-    font-size  : 1.0rem;
+    font-size  : 1.35rem;
     font-weight: 500;
 
     padding-bottom: 0.2rem;
