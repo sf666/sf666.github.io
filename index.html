@@ -35,19 +35,19 @@
 
     <div class="head"> NextCP/2</div>
     <div class="bodytext">
-      This is a web-based UPnP control point focused on audio playback. Most control point applications run on a single device. This control point
-      allows besides a local installation, simultaneous access from any device with a current Chrome based web-browser if installed on a server device like NAS, file-server,
+      Nextcp/2 is a web-based UPnP control point focused on audio playback. Most control point applications run on a single device. This control point
+      allows besides a local installation, simultaneous access from any device within the local network, when installed on a network server device like NAS, file-server,
       Raspberry PI.
     </div>
     <div class="bodytext">
-      The responsive user interface will adapt to most mobile devices. Tablets should be used in landscape mode for best experience. Phones should be used in portrait mode. Browser
-      can be used in any width but look best not larger than 1600px.
+      The responsive user interface will adapt to most mobile devices. Tablets should be used in landscape mode for best experience. Browser
+      can be used in any width but look best not larger than 1600px. Experimental mobile phones support is implemented.
     </div>
 
     <!-- Installation -->
     <div class="head">Quick Install Guide</div>
     <div class="bodytext">
-      Download current <a href="https://github.com/sf666/nextcp2/releases">release</a> into a folder of your choice. Make sure to use Java JDK 15. Start the application by calling
+      Download current <a href="https://github.com/sf666/nextcp2/releases">release</a> into a folder of your choice. Make sure to use JDK 17 or later. Start the application by calling
       <code>java -jar nextcp2-release.jar</code>. For Windows user an exe file is provided for download (experimental). For Linux/Unix systems with systemd service manager
       installed a service template <a href="https://github.com/sf666/nextcp2/tree/main/startup-services/systemd">can be downloaded here</a> for starting nextcp/2 as a service.
 
@@ -66,13 +66,10 @@
       In case of using the recommended <a href="https://www.universalmediaserver.com/">Universal Media Server (UMS)</a> as media server, unlock API features by editing UMS
       configuration file <code>UMS.conf</code> and add
       <ul>
-        <li><code>api_key = 123456789012</code> // Key must have at least 12 chars and is mandatory</li>
         <li><code>audio_update_rating_tag = true</code> // If rating should be saved within the audio file (metadata section). Default is false.</li>
         <li><code>audio_likes_visible_root = true</code> // If "My Albums" should be located in the root folder next to the library folder. Default is false</li>
-        <li><code>managed_playlist_folder = /volumes/music/playlists</code> // change folder path to your music library's playlists folder. This folder should be reachable and
-          scanned by UMS. All playlists found in this folder (no subfolder) will then be displayed in the sidebar. New playlists will also be created in this folder.</li>
       </ul>
-      Restart UMS. Locate UMS server in the <code>Media Server</code> section and enter the configured API key. Press <code>save</code>. Reload the page for changes to be visible.
+
     </div>
     <!-- User interface -->
 
@@ -86,9 +83,7 @@
       awareness.
     </div>
     <div class="bodytext">
-      Since most audio UI friendly features use functionality beyond the UPnP specification, special media server API support is required to unlock all features. Currently
-      only
-      <a href="https://www.universalmediaserver.com/">Universal Media Server (UMS)</a> supports all features and is therefore the recommended media server.
+      Please keep in mind, that only <a href="https://www.universalmediaserver.com/">Universal Media Server (UMS)</a> supports all additional features and is therefore the recommended media server.
     </div>
     <div class="headline">
       Additional features supported by UMS
@@ -104,7 +99,7 @@
         </li>
         <li>Extended server side playlist support with editing support.
           <ul>
-            <li>create playlist in managed playlist folder</li>
+            <li>create playlist </li>
             <li>direct access to playlist from sidebar</li>
             <li>adding songs to playlist</li>
             <li>removing songs from playlist</li>
@@ -177,8 +172,8 @@
     </div>
 
     <div class="bodytext">
-      In case an album is identified by MusicBrainz-ReleaseId, liking this album is activated by displaying a heart symbol next to the album title.
-      Liked albums have a filled heart symbol otherwise the symbol is outlined. Liked album can then be quick accessed by clicking on <code>My Albums</code> in the side bar.
+      In case an album is identified by MusicBrainz-ReleaseId, the like/dislike feature (heart symbol) is activated.
+      Liked album can then be quick accessed by clicking on <code>My Albums</code> in the side bar.
     </div>
 
     <div class="bodytext">
@@ -187,9 +182,8 @@
       <code>audio_update_rating_tag = true</code> property is set in <code>UMS.conf</code>.
     </div>
     <div class="bodytext">
-      Clicking on the three dots will open song options dialog. For UMS server: the song can be added to a server based playlist, if
-      <code>managed_playlist_folder = PATH_TO_FOLDER</code>
-      property is set in <code>UMS.conf</code> and the PATH_TO_FOLDER folder has playlists. If the song is already in this playlist, an error message will appear.
+      Clicking on the three dots will open song options dialog. Here you can add or remove songs to or from playlists,
+      or add songs to a renderer playlist.
     </div>
 
     <div id="AlbumViewCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -249,7 +243,7 @@
       Known media server with compatible UPnP search capabilities are <a href="https://minimserver.com/">Minimserver</a>
       and <a href="https://www.universalmediaserver.com/">Universal Media Server (since 10.6.0)</a>.
       Text will be matched against tracks, albums, playlists and artists. Artist covers are looked up from Spotify, if account is connected.
-      <img src="img/search.png" class="img-fluid" alt="search result">
+      <img src="/search.png" class="img-fluid" alt="search result">
 
       <!-- Player Playlist -->
 
@@ -317,10 +311,6 @@
       </div>
       <div class="bodytext">
         Card view of discovered media server. Server may be offline, if not yet found. Disabled server will not show up for selection in some popups or lists.
-      </div>
-      <div class="bodytext">
-        For a discovered UMS server the <code>UMS.conf</code> configured API key should be entered for unlocking all features. Otherwise most audio convenience functions will not
-        work!
       </div>
 
       <!-- Media Renderer -->
